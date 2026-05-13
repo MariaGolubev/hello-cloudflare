@@ -2,6 +2,11 @@
 @plugin "@tailwindcss/typography";
 
 @layer base {
+
+	html {
+		@apply text-[18px];
+	}
+
 	body {
 		@apply bg-slate-50 text-slate-900;
 
@@ -22,7 +27,7 @@
 	}
 
 	.app-nav__brand {
-		@apply text-base font-semibold tracking-tight text-slate-900;
+		@apply text-lg sm:text-base font-semibold tracking-tight text-slate-900;
 
 		@variant dark {
 			@apply text-slate-100;
@@ -30,7 +35,7 @@
 	}
 
 	.app-nav__links {
-		@apply flex gap-4 text-sm font-bold text-slate-600;
+		@apply flex gap-4 text-base sm:text-sm font-bold text-slate-600;
 
 		@variant dark {
 			@apply text-slate-300;
@@ -59,15 +64,14 @@
 
 	.page-section {
 		@apply mx-auto max-w-2xl px-6 py-16;
-
 	}
 
 	.page-title {
-		@apply text-4xl font-semibold tracking-tight;
+		@apply text-3xl sm:text-4xl font-semibold tracking-tight leading-tight;
 	}
 
 	.page-lead {
-		@apply mt-4 text-lg text-slate-600;
+		@apply mt-4 text-base sm:text-lg leading-7 text-slate-600;
 
 		@variant dark {
 			@apply text-slate-300;
@@ -95,6 +99,4 @@
 			transform: translateX(-2.5rem);
 		}
 	}
-
-
 }
