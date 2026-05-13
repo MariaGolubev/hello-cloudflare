@@ -12,9 +12,13 @@ export const BaseLayout = jsxRenderer(
 			return <>{children}</>
 		}
 
+
 		return (
-			<html lang='en'>
+			<html lang="en">
 				<head>
+					<meta charset="UTF-8" />
+					<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+					<meta name="description" content="A simple Hono app with Vite SSR" />
 					<title>{title}</title>
 					<ViteClient />
 					<Script src="/node_modules/htmx.org/dist/htmx.min.js" />
