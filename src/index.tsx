@@ -1,21 +1,50 @@
 import { Hono } from 'hono'
-import { renderer } from './renderer'
+import { Home, About, Blog, Contact } from './pages'
+import { BaseLayout } from './layouts'
+import { Nav, NavLink } from './components'
+
 
 const app = new Hono()
 
-app.use(renderer)
+app.use(BaseLayout)
 
 app.get('/', (c) => {
+	return c.redirect('/home')
+})
 
+app.get('/home', (c) => {
 	return c.render(
-		<main class="min-h-screen bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-slate-100">
-			<section class="mx-auto max-w-2xl px-6 py-16">
-				<h1 class="text-4xl font-semibold tracking-tight">Hello, Worker</h1>
-				<p class="mt-4 text-lg text-slate-600 dark:text-slate-300">
-					This is a simple Tailwind-styled page served from a Hono route.
-				</p>
-			</section>
-		</main>
+		<>
+			<Nav active={NavLink.Home} />
+			<Home />
+		</>
+	)
+})
+
+app.get('/about', (c) => {
+	return c.render(
+		<>
+			<Nav active={NavLink.About} />
+			<About />
+		</>
+	)
+})
+
+app.get('/blog', (c) => {
+	return c.render(
+		<>
+			<Nav active={NavLink.Blog} />
+			<Blog />
+		</>
+	)
+})
+
+app.get('/contact', (c) => {
+	return c.render(
+		<>
+			<Nav active={NavLink.Contact} />
+			<Contact />
+		</>
 	)
 })
 
