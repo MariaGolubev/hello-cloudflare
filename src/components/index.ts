@@ -1,1 +1,2 @@
-export { Nav, NavLink } from './Nav'
+export { Nav, NavLink, getOrder } from './Nav'
+export { LoadTransition, Direction } from './LoadTransition'

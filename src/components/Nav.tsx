@@ -1,34 +1,43 @@
 
-export enum NavLink {
-	Home = '/home',
-	About = '/about',
-	Blog = '/blog',
-	Contact = '/contact',
-}
+export const NavLink = {
+	Home: { url: "/home", order: 0 },
+	About: { url: "/about", order: 1 },
+	Blog: { url: "/blog", order: 2 },
+	Contact: { url: "/contact", order: 3 },
+} as const;
 
-const NAV_LINKS = Object.entries(NavLink) as Array<[keyof typeof NavLink, NavLink]>
+export type NavLinkItem = typeof NavLink[keyof typeof NavLink];
+export type NavLinkKey = keyof typeof NavLink;
+
+const ORDER_BY_URL = Object.fromEntries(
+		Object.values(NavLink).map((item) => [item.url, item.order])
+	) as Record<string, number>;
+
+export const getOrder = (url: string | null) =>
+		url ? ORDER_BY_URL[url] ?? null : null;
+
+
 
 interface Props {
-	active: NavLink
+	active: NavLinkItem;
 }
 
 
 export const Nav = ({ active }: Props) => {
 	return (
-		<nav
-			hx-boost:inherited="true"
-			class="app-nav"
-		>
+		<nav hx-boost:inherited="true" class="app-nav">
 			<div class="app-nav__inner">
-				<a href={NavLink.Home} class="app-nav__brand">
+				<a href={NavLink.Home.url} class="app-nav__brand">
 					Hello Worker
 				</a>
+
 				<div class="app-nav__links">
-					{NAV_LINKS.map(([label, href]) => (
+					{Object.entries(NavLink).map(([label, item]) => (
 						<a
-							key={href}
-							href={href}
-							class={`app-nav__link ${active === href ? 'app-nav__link--active' : ''}`}
+							key={item.order}
+							href={item.url}
+							class={`app-nav__link ${active.order === item.order ? "app-nav__link--active" : ""
+								}`}
 						>
 							{label}
 						</a>
@@ -36,5 +45,5 @@ export const Nav = ({ active }: Props) => {
 				</div>
 			</div>
 		</nav>
-	)
-}
+	);
+};

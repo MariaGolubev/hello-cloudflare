@@ -13,7 +13,7 @@ export const BaseLayout = jsxRenderer(
 		}
 
 		return (
-			<html>
+			<html lang='en'>
 				<head>
 					<title>{title}</title>
 					<ViteClient />
