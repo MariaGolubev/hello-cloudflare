@@ -7,7 +7,7 @@ export const renderer = jsxRenderer(
 			<html>
 				<head>
 					<ViteClient />
-					<Script src="/src/client.ts" />
+					<Script src="/node_modules/htmx.org/dist/htmx.min.js" />
 					<Link href="/src/style.css" rel="stylesheet" />
 					<Link rel="icon" type="image/x-icon" href="/src/favicon.ico" />
 				</head>
