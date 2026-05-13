@@ -57,12 +57,17 @@
 		}
 	}
 
-	.page-main {
-		@apply min-h-screen;
-	}
-
 	.page-section {
 		@apply mx-auto max-w-2xl px-6 py-16;
+
+		opacity: 1;
+		transform: translateX(0);
+		transition: opacity 180ms ease, transform 180ms ease;
+
+		@starting-style {
+			opacity: 0;
+			transform: translateX(2.5rem);
+		}
 	}
 
 	.page-title {
@@ -76,4 +81,6 @@
 			@apply text-slate-300;
 		}
 	}
+
+
 }

@@ -5,7 +5,7 @@ export const blog = (c: Context) => {
 	return c.render(
 		<>
 			<Nav active={NavLink.Blog} />
-			<main class="page-main">
+			<main>
 				<section class="page-section">
 					<h1 class="page-title">Blog</h1>
 					<p class="page-lead">

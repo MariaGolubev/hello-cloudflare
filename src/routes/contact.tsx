@@ -5,7 +5,8 @@ export const contact = (c: Context) => {
 	return c.render(
 		<>
 			<Nav active={NavLink.Contact} />
-			<main class="page-main">
+
+			<main>
 				<section class="page-section">
 					<h1 class="page-title">Contact</h1>
 					<p class="page-lead">
@@ -13,6 +14,7 @@ export const contact = (c: Context) => {
 					</p>
 				</section>
 			</main>
+
 		</>
 	)
 }

@@ -5,7 +5,7 @@ export const about = (c: Context) => {
 	return c.render(
 		<>
 			<Nav active={NavLink.About} />
-			<main class="page-main">
+			<main>
 				<section class="page-section">
 					<h1 class="page-title">About</h1>
 					<p class="page-lead">

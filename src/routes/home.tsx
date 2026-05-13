@@ -5,7 +5,7 @@ export const home = (c: Context) => {
 	return c.render(
 		<>
 			<Nav active={NavLink.Home} />
-			<main class="page-main">
+			<main>
 				<section class="page-section">
 					<h1 class="page-title">Hello, Worker</h1>
 					<p class="page-lead">
@@ -13,6 +13,7 @@ export const home = (c: Context) => {
 					</p>
 				</section>
 			</main>
+
 		</>
 	)
 }
