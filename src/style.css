@@ -1,2 +1,85 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+
+@layer components {
+	.app-nav {
+		@apply w-full;
+		background: var(--color-slate-50);
+
+		@variant dark {
+			background: black;
+		}
+	}
+
+	.app-nav__inner {
+		@apply mx-auto flex max-w-4xl items-center justify-between px-6 py-4;
+	}
+
+	.app-nav__brand {
+		@apply text-base font-semibold tracking-tight;
+		color: var(--color-slate-900);
+
+		@variant dark {
+			color: var(--color-slate-100);
+		}
+	}
+
+	.app-nav__links {
+		@apply flex gap-4 text-sm;
+		color: var(--color-slate-600);
+
+		@variant dark {
+			color: var(--color-slate-300);
+		}
+	}
+
+	.app-nav__link {
+		@apply transition-colors;
+
+		@variant hover {
+			color: var(--color-slate-900);
+		}
+
+		@variant dark {
+			@variant hover {
+				color: var(--color-slate-100);
+			}
+		}
+	}
+
+	.app-nav__link--active {
+		color: var(--color-slate-900);
+
+		@variant dark {
+			color: var(--color-slate-100);
+		}
+	}
+
+	.page-main {
+		@apply min-h-screen;
+		background: var(--color-slate-50);
+		color: var(--color-slate-900);
+
+		@variant dark {
+			background: black;
+			color: var(--color-slate-100);
+		}
+	}
+
+	.page-section {
+		@apply mx-auto max-w-2xl px-6 py-16;
+	}
+
+	.page-title {
+		@apply text-4xl font-semibold tracking-tight;
+	}
+
+	.page-lead {
+		@apply mt-4 text-lg;
+		color: var(--color-slate-600);
+
+		@variant dark {
+			color: var(--color-slate-300);
+		}
+	}
+}

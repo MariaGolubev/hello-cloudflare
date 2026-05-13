@@ -17,18 +17,18 @@ export const Nav = ({ active }: Props) => {
 	return (
 		<nav
 			hx-boost:inherited="true"
-			class="w-full border-b border-slate-200 bg-white/80 backdrop-blur dark:border-slate-800 dark:bg-slate-950/80"
+			class="app-nav"
 		>
-			<div class="mx-auto flex max-w-4xl items-center justify-between px-6 py-4">
-				<a href={NavLink.Home} class="text-base font-semibold tracking-tight text-slate-900 dark:text-slate-100">
+			<div class="app-nav__inner">
+				<a href={NavLink.Home} class="app-nav__brand">
 					Hello Worker
 				</a>
-				<div class="flex gap-4 text-sm text-slate-600 dark:text-slate-300">
+				<div class="app-nav__links">
 					{NAV_LINKS.map(([label, href]) => (
 						<a
 							key={href}
 							href={href}
-							class={`hover:text-slate-900 dark:hover:text-slate-100 ${active === href ? 'text-slate-900 dark:text-slate-100' : ''}`}
+							class={`app-nav__link ${active === href ? 'app-nav__link--active' : ''}`}
 						>
 							{label}
 						</a>
